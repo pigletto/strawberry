@@ -1,6 +1,15 @@
 import dataclasses
 import warnings
-from typing import TYPE_CHECKING, Any, Dict, Generic, List, Optional, TypeVar, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Collection,
+    Dict,
+    Generic,
+    Optional,
+    TypeVar,
+    Union,
+)
 
 from backports.cached_property import cached_property
 
@@ -36,7 +45,7 @@ class Info(Generic[ContextType, RootValueType]):
         return self._raw_info.schema._strawberry_schema  # type: ignore
 
     @property
-    def field_nodes(self) -> List[FieldNode]:  # deprecated
+    def field_nodes(self) -> Collection[FieldNode]:  # deprecated
         warnings.warn(
             "`info.field_nodes` is deprecated, use `selected_fields` instead",
             DeprecationWarning,
@@ -44,7 +53,7 @@ class Info(Generic[ContextType, RootValueType]):
         return self._raw_info.field_nodes
 
     @cached_property
-    def selected_fields(self) -> List[Selection]:
+    def selected_fields(self) -> Collection[Selection]:
         info = self._raw_info
         return convert_selections(info, info.field_nodes)
 
