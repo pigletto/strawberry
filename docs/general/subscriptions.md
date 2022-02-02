@@ -158,9 +158,9 @@ schema = strawberry.Schema(query=Query, subscription=Subscription)
 ## GraphQL over WebSocket protocols
 
 Strawberry support both the legacy
-[graphql-ws](https://github.com/apollographql/subscriptions-transport-ws) and
+[subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws) and
 the newer recommended
-[graphql-transport-ws](https://github.com/enisdenjo/graphql-ws) WebSocket
+[graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket
 sub-protocols.
 
 Note that the `graphql-ws` sub-protocol is mainly supported for backwards
